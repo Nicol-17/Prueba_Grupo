@@ -1,37 +1,86 @@
+"use client";
+
 import Input from "@/components/ui/Input/Input";
 import Button from "@/components/ui/Button/Button";
+import { useRegisterForm } from "@/components/hooks/useRegisterForm";
 export default function RegisterForm() {
+  const { formData, errors, handleChange, handleSubmit } = useRegisterForm();
 
-    return (
-        <>
-            <form className="">
-                <h2 className="">Register</h2>
-                <label htmlFor="">User name</label>
-                <Input
-                    type="text"
-                    placeholder="Username"
-                    className=""
-                />
-                <label htmlFor="">Email</label>
-                <Input
-                    type="email"
-                    placeholder="Email"
-                    className=""
-                />
-                <label htmlFor="">Password</label>
-                <Input
-                    type="password"
-                    placeholder="Password"
-                    className=""
-                />
-                <label htmlFor="">Confirm Password</label>
-                <Input
-                    type="password"
-                    placeholder="Confirm Password"
-                    className=""
-                />
-                <Button/>
-            </form>
-        </>
-    )
+  return (
+    <>
+      <form onSubmit={handleSubmit} className="">
+        <div>
+          <label htmlFor="username" className="">
+            Username
+          </label>
+          <Input
+            id="username"
+            name="username"
+            type="text"
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div>
+          <label htmlFor="email" className="">
+            Correo Electrónico
+          </label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+
+          {errors.email && (
+            <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="password" className="">
+            Contraseña
+          </label>
+          <Input
+            id="password"
+            name="password"
+            type="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          {errors.password && (
+            <p className="text-red-500 text-xs mt-1">{errors.password}</p>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="confirmPassword" className="">
+            Confirmar Contraseña
+          </label>
+          <Input
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            required
+          />
+          {errors.confirmPassword && (
+            <p className="text-red-500 text-xs mt-1">
+              {errors.confirmPassword}
+            </p>
+          )}
+        </div>
+
+        <Button type="submit" variant="primary">
+          Register
+        </Button>
+      </form>
+    </>
+  );
 }

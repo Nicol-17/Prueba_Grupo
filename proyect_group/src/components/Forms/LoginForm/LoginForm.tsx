@@ -1,19 +1,46 @@
-import Button from "@/components/ui/Button/Button"
-import Input from "@/components/ui/Input/Input"
+"use client";
+
+import Button from "@/components/ui/Button/Button";
+import Input from "@/components/ui/Input/Input";
+import { useLoginForm } from "@/components/hooks/useLoginForm";
 
 export default function loginform() {
-    return (
-        <>
-            <h2 className="">Login</h2>
-            <form className="">
-                <label htmlFor="">User name</label>
-                <Input
-                />
-                <label htmlFor="">Password</label>
-                <Input
-                />
-                <Button />
-            </form>
-        </>
-    )
+  const { formData, errors, handleChange, handleSubmit } = useLoginForm();
+  return (
+    <>
+      <form className="" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="username" className="">
+            Email
+          </label>
+          <Input
+            id="login-email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          {errors.email && <p className="">{errors.email}</p>}
+        </div>
+
+        <div>
+          <label htmlFor="password" className="">
+            Password
+          </label>
+          <Input
+            id="password"
+            name="password"
+            type="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <Button type={"button"} variant="primary">
+          Entrar
+        </Button>
+      </form>
+    </>
+  );
 }
