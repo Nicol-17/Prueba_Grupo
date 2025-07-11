@@ -25,7 +25,7 @@ export default function RegisterForm() {
 
         <div>
           <label htmlFor="email" className="">
-            Correo Electrónico
+            Email
           </label>
           <Input
             id="email"
@@ -43,7 +43,7 @@ export default function RegisterForm() {
 
         <div>
           <label htmlFor="password" className="">
-            Contraseña
+            Password
           </label>
           <Input
             id="password"
@@ -60,7 +60,7 @@ export default function RegisterForm() {
 
         <div>
           <label htmlFor="confirmPassword" className="">
-            Confirmar Contraseña
+            Confirm Password
           </label>
           <Input
             id="confirmPassword"
@@ -78,7 +78,7 @@ export default function RegisterForm() {
         </div>
 
         <Button type="submit" variant="primary">
-          Register
+          Sign Up
         </Button>
       </form>
     </>

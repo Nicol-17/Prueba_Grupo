@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import "./Button.css";
 
 type ButtonVariant = "primary" | "secondary";
 
@@ -10,22 +11,14 @@ interface ButtonProps {
   variant?: ButtonVariant;
 }
 
-const ButtonVariantStyles = {
-  primary: "bg-blue-600 hover:bg-blue-700 text-white",
-  secondary: "bg-gray-200 hover:bg-gray-300 text-gray-800",
-};
-
 export default function Button({
   children,
   type = "button",
   onClick,
-  className,
-  variant = "primary",
+  className = "",
+  variant = "secondary",
 }: ButtonProps) {
-  const buttonClassName = `
-    ${ButtonVariantStyles[variant]} 
-    ${className}
-  `.trim();
+  const buttonClassName = `button ${variant}  ${className}`.trim();
 
   return (
     <button type={type} className={buttonClassName} onClick={onClick}>

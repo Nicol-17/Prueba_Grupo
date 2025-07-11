@@ -4,13 +4,14 @@ import Button from "@/components/ui/Button/Button";
 import Input from "@/components/ui/Input/Input";
 import { useLoginForm } from "@/components/hooks/useLoginForm";
 
+
 export default function loginform() {
   const { formData, errors, handleChange, handleSubmit } = useLoginForm();
   return (
     <>
-      <form className="" onSubmit={handleSubmit}>
+      <form className="form-container" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username" className="">
+          <label htmlFor="username" >
             Email
           </label>
           <Input

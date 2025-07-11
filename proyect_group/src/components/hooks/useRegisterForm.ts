@@ -1,5 +1,6 @@
 import { useState, FormEvent } from "react";
 import { validateEmail, validatePassword, validateConfirmPassword } from "@/components/utility/validation";
+import { log } from "console";
 
 export function useRegisterForm() {
   const [formData, setFormData] = useState({
