@@ -1,45 +1,42 @@
-import Image, {StaticImageData} from "next/image";
-
+import Image from 'next/image';
+import Link from 'next/link';
 
 type CardProps = {
-    name: string;
-    comment: string;
-    avatar: string ;
-    rating?: number;
-    id?: string;
-    
-    
+  id: string;
+  name: string;
+  comment: string;
+  avatar: string;
+  rating?: number;
 };
 
-function Card ({name, comment, avatar, rating = 5, id} :CardProps){
-    const stars = Array.from({length: 5}, (_, i) => (
-        <span key={i} className={i < rating ? "star filled" : "star"}>
-            ★
-        </span>
-    ))
-   
-    return(
-        <div id={id} className="">
-            <Image
-                src={avatar}
-                alt={`photo of ${name}`}
-                width={96}
-                height={96}
-                className=""
-            
-            />
+export default function Card({
+  id,
+  name,
+  comment,
+  avatar,
+  rating = 5,
+}: CardProps) {
+  const stars = Array.from({ length: 5 }, (_, i) => (
+    <span key={i} className={i < rating ? 'text-yellow-500' : 'text-gray-300'}>
+      ★
+    </span>
+  ));
 
-            
-            <h3 className="text-black">{name}</h3>
-            <div className="text-black">{stars}</div>
-            <p className="text-black-100">{comment}</p>
-            
-        </div>
-
-
-
-)
-
+  return (
+    <Link
+      href={`/shop/${id}`}
+      className=""
+    >
+      <Image
+        src={avatar}
+        alt={`photo of ${name}`}
+        width={96}
+        height={96}
+        className=""
+      />
+      <h3 className="">{name}</h3>
+      <div className="">{stars}</div>
+      <p className="">{comment}</p>
+    </Link>
+  );
 }
-
-export default Card;
