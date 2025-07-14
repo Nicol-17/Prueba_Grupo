@@ -1,18 +1,18 @@
-import Image from 'next/image';
-import { notFound } from 'next/navigation';
-import { products } from '@/lib/products';
-import styles from './ProductPage.module.css';
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import { products } from "@/lib/products";
+import styles from "./ProductPage.module.css";
 
 type Props = {
   params: { id: string };
 };
 
 export function generateStaticParams() {
-  return products.map(p => ({ id: p.id }));
+  return products.map((p) => ({ id: p.id }));
 }
 
 export default function ProductPage({ params }: Props) {
-  const product = products.find(p => p.id === params.id);
+  const product = products.find((p) => p.id === params.id);
   if (!product) return notFound();
 
   return (
@@ -20,7 +20,7 @@ export default function ProductPage({ params }: Props) {
       <Image
         src={product.image}
         alt={product.name}
-        width={640}
+        width={530}
         height={360}
         className={styles.image}
       />

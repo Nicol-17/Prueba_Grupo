@@ -2,7 +2,7 @@
   background-color: #111;
   color: #f1f1f1;
   padding: 32px;
-  max-width: 720px;
+  max-width: 600px;
   margin: 0 auto;
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(255, 255, 255, 0.05);
@@ -11,6 +11,7 @@
 .image {
   border-radius: 12px;
   margin-bottom: 24px;
+  background-color: #f1f1f1;
 }
 
 .title {
