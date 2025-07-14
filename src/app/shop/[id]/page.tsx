@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { products } from '@/lib/products';
+import styles from './ProductPage.module.css';
 
 type Props = {
   params: { id: string };
@@ -15,26 +16,22 @@ export default function ProductPage({ params }: Props) {
   if (!product) return notFound();
 
   return (
-    <article className="">
+    <article className={styles.product}>
       <Image
         src={product.image}
         alt={product.name}
         width={640}
         height={360}
-        className=""
+        className={styles.image}
       />
 
-      <h1 className="">{product.name}</h1>
-      <p className="">{product.category}</p>
+      <h1 className={styles.title}>{product.name}</h1>
+      <p className={styles.category}>{product.category}</p>
+      <p className={styles.description}>{product.description}</p>
 
-      <p className="">{product.description}</p>
-
-      <form className="space-y-4">
-        <div className="">${product.price}</div>
-        <button
-          type="submit"
-          className=""
-        >
+      <form className={styles.form}>
+        <div className={styles.price}>${product.price}</div>
+        <button type="submit" className={styles.button}>
           Comprar ahora
         </button>
       </form>

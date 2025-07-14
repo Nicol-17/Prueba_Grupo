@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import styles from './Card.module.css';
 
 type CardProps = {
   id: string;
@@ -17,26 +18,25 @@ export default function Card({
   rating = 5,
 }: CardProps) {
   const stars = Array.from({ length: 5 }, (_, i) => (
-    <span key={i} className={i < rating ? 'text-yellow-500' : 'text-gray-300'}>
+    <span key={i} className={i < rating ? styles.starActive : styles.starInactive}>
       ★
     </span>
   ));
 
   return (
-    <Link
-      href={`/shop/${id}`}
-      className=""
-    >
-      <Image
-        src={avatar}
-        alt={`photo of ${name}`}
-        width={96}
-        height={96}
-        className=""
-      />
-      <h3 className="">{name}</h3>
-      <div className="">{stars}</div>
-      <p className="">{comment}</p>
+    <Link href={`/shop/${id}`} className={styles.card}>
+      <div className={styles.content}>
+        <Image
+          src={avatar}
+          alt={`photo of ${name}`}
+          width={96}
+          height={96}
+          className={styles.avatar}
+        />
+        <h3 className={styles.name}>{name}</h3>
+        <div className={styles.stars}>{stars}</div>
+        <p className={styles.comment}>{comment}</p>
+      </div>
     </Link>
   );
 }
