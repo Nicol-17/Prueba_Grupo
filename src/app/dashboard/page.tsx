@@ -3,7 +3,7 @@ import Card from "@/components/Cards/Card";
 function PageDashboard() {
     return (
         <section className="">
-            <h2 className="">Online store</h2>
+            <h2 className="text-black">Online store</h2>
             <div className="">
                 <Card
                     name="Jean"
