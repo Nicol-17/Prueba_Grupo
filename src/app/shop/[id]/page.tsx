@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { products } from "@/lib/products";
 import styles from "./ProductPage.module.css";
+import Button from "@/components/ui/Button/Button";
 
 type Props = {
   params: { id: string };
@@ -31,9 +32,9 @@ export default function ProductPage({ params }: Props) {
 
       <form className={styles.form}>
         <div className={styles.price}>${product.price}</div>
-        <button type="submit" className={styles.button}>
+        <Button type="link" destinity="/payout" className={styles.button}>
           Comprar ahora
-        </button>
+        </Button>
       </form>
     </article>
   );

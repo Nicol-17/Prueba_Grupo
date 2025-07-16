@@ -2,7 +2,7 @@ export const Navbar = () => {
   return (
     <nav>
       <div>
-        <a href="/">IA Store</a>
+        <a href="/auth">IA Store</a>
       </div>
       <div>
         <form>
