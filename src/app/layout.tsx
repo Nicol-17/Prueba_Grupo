@@ -1,3 +1,4 @@
+'use client';
 import { Navbar } from "@/components/Navbar/Navbar";
 import "./globals.css";
 export default function RootLayout({
@@ -8,7 +9,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
+        {/* <Navbar 
+          onSearch={() => {}} 
+          onCategoryChange={() => {}} 
+        /> */}
         {children}
       </body>
     </html>

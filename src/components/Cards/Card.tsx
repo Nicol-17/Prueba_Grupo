@@ -8,6 +8,7 @@ type CardProps = {
   comment: string;
   avatar: string;
   rating?: number;
+  category?: string;
 };
 
 export default function Card({
@@ -16,6 +17,7 @@ export default function Card({
   comment,
   avatar,
   rating = 5,
+  category,
 }: CardProps) {
   const stars = Array.from({ length: 5 }, (_, i) => (
     <span key={i} className={i < rating ? styles.starActive : styles.starInactive}>
@@ -36,6 +38,7 @@ export default function Card({
         <h3 className={styles.name}>{name}</h3>
         <div className={styles.stars}>{stars}</div>
         <p className={styles.comment}>{comment}</p>
+        {category && <p className={styles.category}>Categoria: {category}</p>}
       </div>
     </Link>
   );

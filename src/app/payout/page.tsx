@@ -1,4 +1,7 @@
 export default function payOut() {
+  return(
+    <>
+    
   <section>
     <h2>Proceso de Pago</h2>
     <form>
@@ -58,4 +61,8 @@ export default function payOut() {
       <button type="submit">Pagar Ahora</button>
     </form>
   </section>;
+    </>
+
+
+  )
 }

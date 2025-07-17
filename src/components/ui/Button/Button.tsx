@@ -1,14 +1,16 @@
 import { ReactNode } from "react";
 import "./Button.css";
+import Link from "next/link";
 
 type ButtonVariant = "primary" | "secondary";
 
 interface ButtonProps {
   children: ReactNode;
-  type?: "submit" | "reset" | "button";
+  type?: "submit" | "reset" | "button" | "link";
   onClick?: () => void;
   className?: string;
   variant?: ButtonVariant;
+  destinity?: string;
 }
 
 export default function Button({
@@ -17,12 +19,26 @@ export default function Button({
   onClick,
   className = "",
   variant = "secondary",
+  destinity = "",
 }: ButtonProps) {
   const buttonClassName = `button ${variant}  ${className}`.trim();
 
-  return (
-    <button type={type} className={buttonClassName} onClick={onClick}>
+  if (type === "link") {
+    return <Link
+      href={destinity}
+      className={buttonClassName}>
       {children}
-    </button>
-  );
-}
+    </Link>;
+  } else {
+    return (
+      <button type={type}
+        className={buttonClassName}
+        onClick={onClick}
+      >
+        {children}
+      </button>
+    );
+  }
+
+
+};
