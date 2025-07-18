@@ -1,16 +1,25 @@
+@keyframes star-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
 .card {
-  background-color: #111;
+  background-color: #1E293B; /* fondo card */
   border-radius: 16px;
   padding: 24px;
   max-width: 320px;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  transition: box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   display: block;
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  max-height: 30rem;
 }
 
 .card:hover {
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25); /* azul claro brillante */
+  transform: translateY(-4px);
 }
 
 .content {
@@ -21,32 +30,60 @@
 }
 
 .avatar {
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  border: 2px solid #333;
+  border: 2px solid #3B82F6; /* borde azul */
   background-color: #fff;
+  object-fit: cover;
 }
 
 .name {
-  color: #fff;
+  color: #F1F5F9; /* texto blanco */
   font-size: 1.2rem;
   margin-top: 12px;
   margin-bottom: 8px;
+  font-weight: 600;
 }
 
 .stars {
   font-size: 1.2rem;
   margin-bottom: 8px;
+  letter-spacing: 2px;
 }
 
 .starActive {
   color: gold;
+  animation: star-glow 1.5s infinite ease-in-out;
 }
 
 .starInactive {
-  color: #444;
+  color: #334155; /* gris oscuro */
 }
 
 .comment {
-  color: #ccc;
+  color: #94A3B8; /* texto secundario gris claro */
   font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 600px) {
+  .card {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .name {
+    font-size: 1rem;
+  }
+
+  .comment {
+    font-size: 0.85rem;
+  }
 }
