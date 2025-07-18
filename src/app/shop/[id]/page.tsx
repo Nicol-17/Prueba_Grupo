@@ -25,17 +25,28 @@ export default function ProductPage({ params }: Props) {
         height={360}
         className={styles.image}
       />
+      <section className={styles.details}>
 
-      <h1 className={styles.title}>{product.name}</h1>
-      <p className={styles.category}>{product.category}</p>
+        <h1 className={styles.title}>{product.name}</h1>
+
+        <p className={styles.category}>{product.category}</p>
+      </section>
+      <div>
+        
       <p className={styles.description}>{product.description}</p>
 
       <form className={styles.form}>
         <div className={styles.price}>${product.price}</div>
-        <Button type="link" destinity="/payout" className={styles.button}>
-          Comprar ahora
-        </Button>
+        <div className={styles.buttons}>
+          <Button type="link" destinity="/payout" className={styles.button}>
+            Comprar ahora
+          </Button>
+          <Button type="link" destinity="/shop" className={styles.button}>
+            volver
+          </Button>
+        </div>
       </form>
+      </div>
     </article>
   );
 }

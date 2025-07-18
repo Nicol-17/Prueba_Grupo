@@ -26,19 +26,19 @@ export default function Card({
   ));
 
   return (
-    <Link href={`/shop/${id}`} className={styles.card}>
-      <div className={styles.content}>
+    <Link href={`/shop/${id}`} className={`${styles.card}`}>
+      <div className={`${styles.content}`}>
         <Image
           src={avatar}
           alt={`photo of ${name}`}
           width={96}
           height={96}
-          className={styles.avatar}
+          className={`${styles.avatar}`}
         />
-        <h3 className={styles.name}>{name}</h3>
-        <div className={styles.stars}>{stars}</div>
-        <p className={styles.comment}>{comment}</p>
-        {category && <p className={styles.category}>Categoria: {category}</p>}
+        <h3 className={`${styles.name}`}>{name}</h3>
+        <div className={`${styles.stars}`}>{stars}</div>
+        <p className={`${styles.comment}`}>{comment}</p>
+        {category && <p className={`${styles.category}`}>Categoria: {category}</p>}
       </div>
     </Link>
   );
